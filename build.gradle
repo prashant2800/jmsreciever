@@ -1,0 +1,36 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.8.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter')
+	compile group: 'org.springframework', name: 'spring-jms', version: '5.0.2.RELEASE'
+	compile group: 'org.apache.activemq', name: 'activemq-spring', version: '5.10.0'
+	compile group: 'com.sun.jersey', name: 'jersey-client', version: '1.9.1'
+    compile group: 'com.sun.jersey', name: 'jersey-json', version: '1.19'
+    compile("com.fasterxml.jackson.core:jackson-databind")
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version: '2.8.6'
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
